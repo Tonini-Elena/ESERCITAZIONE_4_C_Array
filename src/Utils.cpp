@@ -14,20 +14,20 @@ bool ImportVectors(const string& inputFilePath,
 {
     ifstream file(inputFilePath); 
     string tmp;
-   // unsigned int S;
+   
 
     if (file.fail())
         return false; 
 
-    // Leggi "S;1000"
+    
     getline(file, tmp, ';'); 
     file >> S;
 
-    // Leggi "n;8"
+ 
     getline(file, tmp, ';');
     file >> n;
 
-    // Salta intestazione "w;r"
+    
     getline(file, tmp, ';'); 
     getline(file, tmp);
 
@@ -44,7 +44,7 @@ bool ImportVectors(const string& inputFilePath,
     return true;
 }
 
-// Calcola la media pesata: ∑(w[i] * r[i])
+//weighted average calculation
 double weightedAverage(const size_t& n,
                         const double* const v1,
                         const double* const v2)
@@ -57,11 +57,12 @@ double weightedAverage(const size_t& n,
     return result;
 }
 
-// Calcola valore finale V = S * (1 + r)
+//Portfolio Value Calculation
 double ReturnRate( double S,const double rate)
 {
     return S * (1 + rate);
 }
+
 
 bool ExportResult(const string& outputFilePath,
                   const size_t& n,
